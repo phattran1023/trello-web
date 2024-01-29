@@ -1,0 +1,8 @@
+// configure path aliases for the IDE
+{
+  "compilerOptions": {
+    "paths": {
+      "~/*": ["./src/*"],
+    },
+  }
+}

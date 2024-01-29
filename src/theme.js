@@ -12,7 +12,7 @@ const theme = extendTheme({
         primary: teal,
         secondary: deepOrange
       },
-      spacing: (factor) => `${0.25 * factor}rem` // (Bootstrap strategy)
+      spacing: (factor) => `${0.25 * factor}rem`// (Bootstrap strategy)
     },
     dark: {
       palette: {
