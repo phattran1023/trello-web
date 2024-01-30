@@ -46,7 +46,6 @@ const theme = extendTheme({
       styleOverrides: {
         // Name of the slot
         root: {
-          // Some CSS
           textTransform: 'none'
         }
       }
