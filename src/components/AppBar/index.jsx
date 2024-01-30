@@ -30,7 +30,7 @@ function AppBar() {
         <AppsIcon sx={{ color:'primary.main' }}></AppsIcon>
         <Box sx={{ display:'flex', alignItems:'center', gap:2 }}>
           {/* Import SVG icon as React components */}
-          <SvgIcon sx={{ color:'primary.main' }} component={trelloLogo} inheritViewBox />
+          <SvgIcon sx={{ color:'primary.main' }} fontSize='small' component={trelloLogo} inheritViewBox />
           <Typography variant='span' sx={{ fontSize:'1.2rem', fontWeight:'bold', color:'primary.main' }}>Trello</Typography>
         </Box>
         <Workspaces/>
@@ -42,18 +42,18 @@ function AppBar() {
       <Box sx={{ display:'flex', alignItems:'center', gap:2 }}>
         <TextField
           id="outlined-search"
-          label="Search ..."
+          label="Search"
           type='search'
           size='small'
         />
         <ModeSelect/>
         <Tooltip title="Notifications">
           <Badge color="secondary" variant="dot" sx={{ cursor:'pointer' }}>
-            <NotificationsNoneIcon />
+            <NotificationsNoneIcon sx={{ color:'primary.main' }} />
           </Badge>
         </Tooltip>
         <Tooltip title="Helps">
-          <HelpOutlineIcon sx={{ cursor:'pointer' }}/>
+          <HelpOutlineIcon sx={{ cursor:'pointer', color:'primary.main' }}/>
         </Tooltip>
         <Profiles/>
       </Box>
