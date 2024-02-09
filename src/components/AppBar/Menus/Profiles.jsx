@@ -32,7 +32,7 @@ function Profiles() {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
         >
-          <Avatar sx={{ width: 32, height: 32 }} src='https://laputafarm.com/wp-content/uploads/2021/12/6222590fa85a62043b4b.jpg' alt='Phat'/>
+          <Avatar sx={{ width: 36, height: 36 }} src='https://laputafarm.com/wp-content/uploads/2021/12/6222590fa85a62043b4b.jpg' alt='Phat'/>
         </IconButton>
       </Tooltip>
       <Menu
