@@ -35,7 +35,10 @@ function BoardBar() {
       overflowX: 'auto',
       borderBottom:'1px solid #e6e6e6',
       px:2,
-      bgcolor: ( theme ) => (theme.palette.mode === 'dark') ? '#34495e' : '#1976d2'
+      bgcolor: ( theme ) => (theme.palette.mode === 'dark') ? '#34495e' : '#1976d2',
+      '&::-webkit-scrollbar-track': {
+        m:2
+      }
     }}>
       <Box sx={{ display:'flex', alignItems:'center', gap:2 }}>
         <Chip icon={<DashboardIcon />}
@@ -72,13 +75,16 @@ function BoardBar() {
         >
           Invite
         </Button>
-        <AvatarGroup max={5} sx={{
+        <AvatarGroup max={4} sx={{
           gap: '10px',
           '& .MuiAvatar-root':{
             width: 34,
             height: 34,
             fontSize:14,
-            border: 'none'
+            border: 'none',
+            color: 'white',
+            cursor: 'pointer',
+            '&:first-of-type':{ bgcolor: '#a4b0be' }
           }
         }}>
           <Tooltip title='Phat'>
