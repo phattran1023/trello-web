@@ -8,40 +8,41 @@ import AttachmentIcon from '@mui/icons-material/Attachment'
 import { Typography } from '@mui/material'
 import Button from '@mui/material/Button'
 
-function Card({ temporaryHideMedia }) {
-  if (temporaryHideMedia) {
-    return (
-      <MuiCard sx={{
-        cursor:'pointer',
-        boxShadow:'0 1px 1px rgba(0,0,0,0.2)',
-        overflow: 'unset'
-      }}>
+function Card({ card }) {
 
-        <CardContent sx={{ p:1.5 }}>
-          <Typography>Card test 01</Typography>
-        </CardContent>
-      </MuiCard>
-    )
+  const shouldShowCardActions = () => {
+    return !!card?.memberIds?.length || !!card?.comments?.length || !!card?.attachments?.length
   }
+
   return (
     <MuiCard sx={{
       cursor:'pointer',
       boxShadow:'0 1px 1px rgba(0,0,0,0.2)',
       overflow: 'unset'
     }}>
-      <CardMedia
-        sx={{ height: 140 }}
-        image="https://cdn.tgdd.vn/Files/2021/04/16/1343844/tim-hieu-ve-giong-cho-shiba-nguon-goc-dac-diem-cach-nuoi-bang-gia-202203281503364263.jpg"
-        title="Inu Shiba"
-      />
-      <CardContent sx={{ p:1.5 }}>
-        <Typography>Trello web clone</Typography>
+      {card?.cover &&
+      <CardMedia sx={{ height: 140 }} image={card?.cover} title="Inu Shiba"/> }
+      <CardContent sx={{ p:1.5, '&:last-child': { p: 1.5 } }}>
+        <Typography>{card?.title}</Typography>
       </CardContent>
+      {shouldShowCardActions() &&
       <CardActions sx={{ p:'0 4px 8px 4px' }}>
-        <Button size="small" startIcon={<GroupIcon/>}>20</Button>
-        <Button size="small" startIcon={<CommentIcon/>}>10</Button>
-        <Button size="small" startIcon={<AttachmentIcon/>}>5</Button>
+        {!!card?.memberIds?.length &&
+        <Button size="small" startIcon={<GroupIcon/>}>
+          {card?.memberIds?.length}
+        </Button>}
+
+        {!!card?.comments?.length &&
+        <Button size="small" startIcon={<CommentIcon/>}>
+          {card?.comments?.length}
+        </Button>}
+
+        {!!card?.attachments?.length &&
+        <Button size="small" startIcon={<AttachmentIcon/>}>
+          {card?.attachments?.length}
+        </Button>}
       </CardActions>
+      }
     </MuiCard>
   )
 }
