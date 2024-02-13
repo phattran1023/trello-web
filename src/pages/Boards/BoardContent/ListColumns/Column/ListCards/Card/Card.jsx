@@ -20,7 +20,8 @@ function Card({ card }) {
     // touchAction: 'none', // Prevent scrolling on touch devices
     transform: CSS.Translate.toString(transform),
     transition,
-    opacity: isDragging ? 0.6 : undefined
+    opacity: isDragging ? 0.6 : undefined,
+    border: isDragging ? '1px solid #2ecc71' : undefined
   }
   const shouldShowCardActions = () => {
     return !!card?.memberIds?.length || !!card?.comments?.length || !!card?.attachments?.length
