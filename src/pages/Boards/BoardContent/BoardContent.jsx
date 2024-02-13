@@ -9,7 +9,8 @@ import {
   useSensor,
   useSensors,
   DragOverlay,
-  defaultDropAnimationSideEffects
+  defaultDropAnimationSideEffects,
+  closestCorners
 } from '@dnd-kit/core'
 import { useEffect, useState } from 'react'
 import { arrayMove } from '@dnd-kit/sortable'
@@ -120,7 +121,7 @@ function BoardContent({ board }) {
           // Câp nhật lại cardOrderIds ở column cũ (activeColumn)
           nextOverColumn.cardOrderIds = nextOverColumn.cards.map(card => card._id)
         }
-        
+
         return nextColumns
       })
     }
@@ -173,6 +174,8 @@ function BoardContent({ board }) {
   return (
     <DndContext
       sensors={sensors}
+      // Thuật toán xử lý va chạm giữa các card khi kéo thả
+      collisionDetection={closestCorners}
       onDragStart={handleDragStart}
       onDragOver={handleDragOver}
       onDragEnd={handleDragEnd}>
