@@ -31,8 +31,9 @@ function Card({ card }) {
     <MuiCard ref={setNodeRef} style={dndKitCardStyles} {...attributes} {...listeners}
       sx={{
         cursor:'pointer',
-        boxShadow:'0 1px 1px rgba(0,0,0,0.2)',
-        overflow: 'unset'
+        boxShadow:'0 1px 1px rgba(0, 0, 0, 0.2)',
+        overflow: 'unset',
+        display: card?.FE_PlaceholderCard ? 'none' : 'block'
       }}>
       {card?.cover &&
       <CardMedia sx={{ height: 140 }} image={card?.cover} title="Inu Shiba"/> }
